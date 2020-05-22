@@ -1,1 +1,17 @@
-<p>contactos works!</p>
+
+<table class="table table-striped table-hover">
+
+    <thead class="thead-dark">
+        <th>Id</th>
+        <th>Nombre</th>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let contacto of contactos">
+            <td>{{contacto.id}}</td>
+            <td>{{contacto.nombre}}</td>
+        </tr>
+    </tbody>
+
+
+</table>
