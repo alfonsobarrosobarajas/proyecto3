@@ -3,14 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Se agrega Modulo
 import { ContactosComponent } from './contactos/contactos.component'
-
+import { ServiciosComponent } from './servicios/servicios.component';
 
 // Por útlimo, modificar el arreglo de las rutas ...
 const routes: Routes = [
 
-
-  { path: 'contactos', component: ContactosComponent}
-
+  { path: 'contactos', component: ContactosComponent }, 
+  { path: 'servicios', component: ServiciosComponent }
 
 ];
 
