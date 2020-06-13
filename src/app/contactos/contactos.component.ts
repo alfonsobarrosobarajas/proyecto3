@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contacto } from './contacto';
+import { ContactoService } from './contacto.service';
+import { isNgTemplate } from '@angular/compiler';
 
 @Component({
   selector: 'app-contactos',
@@ -9,18 +11,23 @@ import { Contacto } from './contacto';
 export class ContactosComponent implements OnInit {
 
   // Declaracion de arreglo de la clase Contacto
-  contactos : any = [
+  contactos : any = [];
 
-    new Contacto(1, 'Gorgonio'),
-    new Contacto(2, 'Benicio'),
-    new Contacto(3, 'Sofocles')
-    
-  ];
-
-
-  constructor() { }
+  constructor(private contactoService: ContactoService) { }
 
   ngOnInit(): void {
+
+    this.contactoService.getContacts().subscribe(
+      res => {
+
+        this.contactos = res;
+      },
+      err => {
+        console.log(err);
+      }
+
+    );
+
   }
 
 }
