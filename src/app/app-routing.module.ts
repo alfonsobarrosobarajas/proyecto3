@@ -9,7 +9,6 @@ import { ServiciosComponent } from './servicios/servicios.component';
 const routes: Routes = [
 
   { path: 'contactos', component: ContactosComponent },
-  { path: 'contactos/:id', component: ContactosComponent }
   { path: 'servicios', component: ServiciosComponent}
 
 ];
