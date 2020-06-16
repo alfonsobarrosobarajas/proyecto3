@@ -13,7 +13,7 @@ export class ContactoService {
   constructor(private http: HttpClient) { }
 
   getContacts() {
-
+  
     return this.http.get(`${this.API_URI}/contacto/list`);
 
   }
@@ -24,9 +24,9 @@ export class ContactoService {
   }
 
 
-  saveConcept(concept: Contacto) {
+  saveContact(contacto: Contacto) {
 
-    return this.http.post(`${this.API_URI}/contacto`, concept);
+    return this.http.post(`${this.API_URI}/contacto/add`, contacto);
 
   }
 

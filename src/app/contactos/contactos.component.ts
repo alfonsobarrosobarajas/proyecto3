@@ -11,11 +11,20 @@ import { isNgTemplate } from '@angular/compiler';
 export class ContactosComponent implements OnInit {
 
   // Declaracion de arreglo de la clase Contacto
-  contactos : any = [];
+  contactos: any = [];
+  contacto: Contacto;
 
   constructor(private contactoService: ContactoService) { }
 
   ngOnInit(): void {
+
+    this.contacto = new Contacto();
+    this.listContactos();
+
+  }
+
+
+  listContactos() {
 
     this.contactoService.getContacts().subscribe(
       res => {
@@ -29,5 +38,21 @@ export class ContactosComponent implements OnInit {
     );
 
   }
+
+  agregarContacto(contacto: Contacto) {
+
+    this.contactoService.saveContact(contacto)
+      .subscribe(
+        data => {
+          this.listContactos();
+        },
+        error => {
+          console.log(error)
+        }
+      );
+
+
+  }
+
 
 }
